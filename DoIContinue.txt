@@ -1,0 +1,60 @@
+7/25/17
+
+program that will prompt the user and ask to continue
+
+1) Prompt the user “Would you like to continue?”
+2)Get input from the user
+3)Check for three things:
+	yes – y    			continue/ re prompt/ go to step 1 again
+	no – n				exit program
+	other -  [anything else]	error message and re prompt/ go to step 1 
+
+
+Pseudo code:
+
+do
+	ask user if they want to continue
+	ask for a response
+	compare the response to “y” and “n” (ignoring case) 
+		if
+		 	y- start again with the reprompt
+		else if	n- exit program
+		else	any other- error message and reprompt
+while (response is not n)
+
+
+
+
+Code:
+
+package doicontinue;
+
+import java.util.Scanner;
+
+public class DoIContinue {
+
+	public static void main(String[] args) {
+
+		//Having the end variable as false and only setting it to true in the case that we want to quit the program means we only need one while loop
+		boolean end = false;
+		Scanner scan = new Scanner(System.in);
+
+		//enter the loop and do it once before getting to the conditional while statement
+		do{
+			System.out.println("Would you like to continue (\"y\"for yes or \"n\" for no)");
+			String response = scan.next();
+			if (response.equalsIgnoreCase("y")){
+			}
+			else if(response.equalsIgnoreCase("n")){
+				end = true;
+			}
+			else{
+				System.out.println("why you no answer correctly. Try again");
+			}
+
+		}while (end ==false);
+		System.out.println("I see we are done here... bye then!");
+
+	}
+
+}
